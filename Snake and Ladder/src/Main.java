@@ -47,3 +47,49 @@ public class Main {
         gameBoard.playGame();
     }
 }
+
+//-- Players table
+//        CREATE TABLE player (
+//        id SERIAL PRIMARY KEY,
+//        name VARCHAR(50) NOT NULL
+//);
+//
+//        -- Board table
+//        CREATE TABLE board (
+//        id SERIAL PRIMARY KEY,
+//        size INT NOT NULL -- usually 100
+//);
+//
+//-- Snakes (belongs to a board)
+//        CREATE TABLE snake (
+//        id SERIAL PRIMARY KEY,
+//        board_id INT NOT NULL REFERENCES board(id) ON DELETE CASCADE,
+//        head INT NOT NULL,
+//        tail INT NOT NULL,
+//        CHECK (tail < head) -- rule: snake goes down
+//);
+//
+//        -- Ladders (belongs to a board)
+//        CREATE TABLE ladder (
+//        id SERIAL PRIMARY KEY,
+//        board_id INT NOT NULL REFERENCES board(id) ON DELETE CASCADE,
+//        start INT NOT NULL,
+//        end INT NOT NULL,
+//        CHECK (end > start) -- rule: ladder goes up
+//);
+//
+//        -- Game session (tracks which board is being played)
+//        CREATE TABLE game (
+//        id SERIAL PRIMARY KEY,
+//        board_id INT NOT NULL REFERENCES board(id) ON DELETE CASCADE,
+//        status VARCHAR(20) DEFAULT 'IN_PROGRESS', -- e.g. IN_PROGRESS, FINISHED
+//        winner_id INT REFERENCES player(id) -- nullable until someone wins
+//);
+//
+//        -- Mapping players to a game (many-to-many)
+//        CREATE TABLE game_player (
+//        game_id INT NOT NULL REFERENCES game(id) ON DELETE CASCADE,
+//        player_id INT NOT NULL REFERENCES player(id) ON DELETE CASCADE,
+//        position INT DEFAULT 0, -- track current position
+//        PRIMARY KEY (game_id, player_id)
+//);
